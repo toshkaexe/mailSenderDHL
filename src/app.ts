@@ -10,6 +10,8 @@ export const RouterPaths = {
 
 export const app: Express = express();
 app.use(express.json())
+
+app.use(cors()) // 👈 обязательно!
 app.use(bodyParser.json())
 app.get('/', (req, res) => {
   res.send("Hello Email Server!")

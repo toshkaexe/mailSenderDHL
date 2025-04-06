@@ -12,15 +12,15 @@ export const emailAdapter = {
         pass: process.env.EMAIL_PWS,
       }
     });
-    console.log("11111")
+
     console.log("email", email, subject, message)
-    console.log("22222")
+
     let info =
         await transporter.sendMail({
           from: "Info <antonanton2025@internet.ru>",
           to: email,
-          subject: "Your Order Has Been Shipped – Tracking Information Inside",
-          html: emailTemplate
+          subject: subject,
+          html: message
         })
 
     console.log(info);

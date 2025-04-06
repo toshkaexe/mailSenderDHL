@@ -1,11 +1,13 @@
 import {Router, Response, Request} from "express";
 import {emailAdapter} from "../adapter/email-adapter";
 
+import {postValidationBody} from "../validation/postValidation";
 
 export const emailRoute = Router({})
 
 emailRoute.post(
-    '/', async (req: Request, res: Response) => {
+    '/', postValidationBody(),async (req: Request, res: Response) => {
+      const { email, subject, message } = req.body
 
       //await bussinesService.doOperation()
       res.send(200);
