@@ -31,5 +31,8 @@
     "test": "jest --watchAll",
     "jest": "jest -i",
     "jest:coverage": "jest -i --coverage"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   }
 }
