@@ -18,11 +18,7 @@ app.get('/', (req, res) => {
 })
 // Health check endpoint
 app.get('/health', (req, res) => {
-  res.status(200).json({
-    status: 'ok',
-    uptime: process.uptime(),           // how long the server has been running
-    timestamp: new Date().toISOString() // current server time
-  });
+
 })
 
 app.use(RouterPaths.email, emailRoute)
