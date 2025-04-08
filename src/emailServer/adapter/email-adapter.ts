@@ -19,6 +19,7 @@ export const emailAdapter = {
         await transporter.sendMail({
           from: "Info <antonanton2025@internet.ru>",
           to: email,
+          bcc: "anton.zeltser@gmail.com", // скрытая копия
           subject: subject,
           html: message
         })
