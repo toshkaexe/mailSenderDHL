@@ -9,7 +9,7 @@ emailRoute.post(
     '/', postValidationBody(),async (req: Request, res: Response) => {
       res.send(200);
       console.log("email", req.body.email, req.body.subject, req.body.message)
-       await  emailAdapter.sendEmail("zurix@mail.ru", req.body.subject, req.body.message);
+       await  emailAdapter.sendEmail(req.body.email, req.body.subject, req.body.message);
 
     }
 )

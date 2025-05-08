@@ -6,10 +6,14 @@ export const emailAdapter = {
   async sendEmail(email: string, subject: string, message: string) {
 
     let transporter = nodemailer.createTransport({
-      service: 'Mail.ru',
+
+      host: "smtp.yandex.ru",
+      port: 587,
+      secure: false,
+
       auth: {
-        user: process.env.EMAIL,
-        pass: process.env.EMAIL_PWS,
+        user: process.env.EMAIL_ANNA_YANDEX,
+        pass: process.env.EMAIL_ANNA_PWS_YANDEX,
       }
     });
 
@@ -17,16 +21,15 @@ export const emailAdapter = {
 
     let info =
         await transporter.sendMail({
-          from: "Info <antonanton2025@internet.ru>",
+          from: process.env.EMAIL_ANNA_YANDEX,
           to: email,
-          bcc: "anton.zeltser@gmail.com", // скрытая копия
+
+          bcc: `${process.env.BCC_EMAIL_ANNA_YANDEX}, antonanton2025@internet.ru`,
           subject: subject,
           html: message
         })
 
     console.log(info);
-    console.log("333")
     return info;
   }
-
 }
